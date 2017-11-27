@@ -2,7 +2,7 @@
 Component for captcha generation.
 
 ## Using
-1) Import to file
+### Import to file
 ```js
 import RCG from 'react-captcha-generator';
 ...
@@ -30,9 +30,8 @@ import RCG from 'react-captcha-generator';
 * lenght
 * background
 
-### Example:
+## Example:
 ```js
-...
 import React, { Component } from 'react';
 import './App.css';
 import RCG from 'react-captcha-generator';
@@ -79,5 +78,4 @@ class App extends Component {
 }
 
 export default App;
-...
 ```
