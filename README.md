@@ -19,16 +19,6 @@ import RCG from 'react-captcha-generator';
   }
 ...
 ```
-### Optional settings:
-* height
-* width
-* textColor
-* fontFamily
-* fontSize
-* paddingLeft
-* paddingTop
-* lenght
-* background
 
 ## Example:
 ```js
