@@ -10,7 +10,7 @@ import RCG from 'react-captcha-generator';
 ### Add to сode
 ```js
 ...
-  <Aaa
+  <RCG
     result={this.result} // Callback function with code
   />
 ...
