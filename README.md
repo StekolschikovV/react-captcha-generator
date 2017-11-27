@@ -7,7 +7,7 @@ Component for captcha generation.
 import RCG from 'react-captcha-generator';
 ...
 ```
-2) Add to сode
+### Add to сode
 ```js
 ...
   <Aaa
@@ -19,7 +19,7 @@ import RCG from 'react-captcha-generator';
   }
 ...
 ```
-3) Optional settings:
+### Optional settings:
 * height
 * width
 * textColor

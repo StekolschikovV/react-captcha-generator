@@ -1,41 +1,40 @@
-/* jshint node: true */
-var path = require('path');
-
-
 module.exports = {
-  context: path.join(__dirname),
-  entry: './lib/index.js',
-
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.js',
-    libraryTarget: 'umd',
-    library: 'ReactComponentNpm'
-  },
-
-  externals: {
-   'react': 'var React',
-   'react/addons': 'var React'
-  },
-
-  module: {
-    loaders: [
-      {
-        test: /\.scss$/,
-        // Query parameters are passed to node-sass
-        loader: 'style!css!sass?outputStyle=expanded&' +
-          'includePaths[]=' + (path.resolve(__dirname, './bower_components')) + '&' +
-          'includePaths[]=' + (path.resolve(__dirname, './node_modules'))
-      },
-      {
-        test: /(\.js)|(\.jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          optional: ['runtime'],
-          stage: 0
+    entry: "./index.jsx",
+    output: {
+        path: __dirname,
+        libraryTarget: 'umd',
+        library: 'titt',
+        filename: "index.min.js"
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015'],
+                    plugins: ['add-module-exports']
+                }
+            }
+        ]
+    },
+    externals: [
+        {
+            'react-dom': {
+                root: 'ReactDOM',
+                commonjs2: 'react-dom',
+                commonjs: 'react-dom',
+                amd: 'react-dom'
+            }
+        },
+        {
+            'react': {
+                root: 'React',
+                commonjs2: 'react',
+                commonjs: 'react',
+                amd: 'react'
+            }
         }
-      }
     ]
-  }
 };
