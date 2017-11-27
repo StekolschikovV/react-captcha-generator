@@ -1,6 +1,6 @@
 {
   "name": "react-captcha-generator",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "react captcha generator",
   "main": "index.min.js",
   "scripts": {},
@@ -9,5 +9,14 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
-  }
+  },
+  "repository" :{ 
+    "type" : "git", 
+    "url" : "https://github.com/StekolschikovV/react-captcha-generator"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component"
+  ]
 }

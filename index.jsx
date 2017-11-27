@@ -4,9 +4,25 @@ class ReactCaptchaGenerator extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            height: 100,
+            width: 100,
+            textColor: false,
+            fontFamily: 'Verdana',
+            fontSize: '30',
+            paddingLeft: '20',
+            paddingTop: '60',
+            lenght: '5',
+            background: 'none'
+        }
+        this.setData = this.setData.bind(this)
     }
 
     componentWillMount() {
+        this.setData()
+    }
+
+    setData() {
         this.setState({
             height: this.props.height ? this.props.height : 100,
             width: this.props.width ? this.props.width : 100,
@@ -18,15 +34,13 @@ class ReactCaptchaGenerator extends Component {
             lenght: this.props.lenght ? this.props.lenght : '5',
             background: this.props.background ? this.props.background : 'none',
         })
-    }
 
-    render() {
-        let text = []
-        let originText = []
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        this.text = []
+        this.originText = []
+        this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         for (var i = 0; i < this.state.lenght; i++) {
-            let char = possible.charAt(Math.floor(Math.random() * possible.length))
-            text.push(
+            let char = this.possible.charAt(Math.floor(Math.random() * this.possible.length))
+            this.text.push(
                 `<text 
                     font-family="${this.state.fontFamily}" 
                     font-size="${this.state.fontSize}" 
@@ -36,11 +50,16 @@ class ReactCaptchaGenerator extends Component {
                     transform="rotate(${Math.random() * (5 - 0) + 0})"
                 >${char}</text>`
             )
-            originText.push(
+            this.originText.push(
                 char
             )
         }
-        this.props.result(originText.join(''))
+        this.props.result(this.originText.join(''))
+
+    }
+
+    render() {
+
         return (
             <img
                 style={{ background: this.state.background }}
@@ -50,7 +69,7 @@ class ReactCaptchaGenerator extends Component {
                         'xmlns="http://www.w3.org/2000/svg" ' +
                         'height="' + this.state.height + '" ' +
                         'width="' + this.state.width + '">' +
-                        text.join() +
+                        this.text.join() +
                         '</svg>')
                 }
                 alt="" />
