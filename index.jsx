@@ -21,6 +21,12 @@ class ReactCaptchaGenerator extends Component {
     componentWillMount() {
         this.setData()
     }
+    
+    componentWillReceiveProps({ toggleRefresh }) {
+        if (toggleRefresh != this.props.toggleRefresh) {
+            this.setData();
+        }
+    }
 
     setData() {
         this.setState({
